@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Questions;
+
+
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('question/create', [Questions::class, 'index'])->name('new-question');
+Route::post('question/save', [Questions::class, 'store'])->name('save-question');
