@@ -31,6 +31,7 @@ class Questions extends Controller
             ]);
         });
 
-        return response()->json(['message' => 'Pergunta cadastrada com sucesso'], 201);
+        return response()->json(['mensagem' => 'Post salvo com sucesso!']);
+
     }
 }
