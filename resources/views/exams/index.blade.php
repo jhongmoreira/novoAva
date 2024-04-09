@@ -7,16 +7,25 @@
 
 <h1>Nova Prova</h1>
 
-@foreach($questions as $questions)
-<div class="row">
-    {{ $questions->description }}
-</div>
-    @foreach($questions->answers as $answers)
-        <input type="radio" name="{{ 'question'.$questions->id }}" id="{{ $answers->id }}" value="{{ $answers->description_answer }}">
-        <label for="{{ $answers->id }}">{{ $answers->description_answer }}</label> <br>
+<form id="formQuestion">
+    @csrf
+    @foreach($questions as $questions)
+    <div class="row">
+        {{ $questions->description }}
+    </div>
+        @foreach($questions->answers as $answers)
+            <input type="radio" name="{{ 'question'.$questions->id }}" id="{{ 'a'.$answers->id }}" value="{{ $answers->id }}">
+            <label for="{{ $answers->id }}">{{ $answers->description_answer }}</label> <br>
+        @endforeach
+        <hr>
     @endforeach
-    <hr>
-@endforeach
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-primary" id="btnSubmit" type="submit">Enviar</button>
+        </div>
+    </div>
+</form>
+
 
 
 <script>
@@ -34,7 +43,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '{{ route("save-question") }}',
+                url: '{{ route("save-exam") }}',
                 data: $(this).serialize(),
                 beforeSend: function () {
                     // Desativar o botão de submit antes de enviar a requisição

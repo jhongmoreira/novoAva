@@ -16,7 +16,6 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('exam_id')->constraint();
             $table->foreignId('answer_id')->constraint();
-            $table->string('student_answer');
 
             $table->foreign('exam_id')->references('id')->on('questions');
             $table->foreign('answer_id')->references('id')->on('answers');
