@@ -20,6 +20,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('new-question') }}">Cadastrar</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ route('new-exam') }}">Prova</a>
+      </li>
     </ul>
   </div>
 </nav>
